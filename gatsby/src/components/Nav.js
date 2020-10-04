@@ -63,7 +63,7 @@ export default function Nav() {
           </Link>
         </li>
         <li>
-          <Link to="/slicemasters">SliceMaster</Link>
+          <Link to="/slicemasters">Slice Masters</Link>
         </li>
         <li>
           <Link to="/orders">Order Ahead!</Link>
