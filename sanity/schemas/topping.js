@@ -24,4 +24,13 @@ export default {
       },
     },
   ],
+  preview: {
+    select: {
+      name: 'name',
+      vegetarian: 'vegetarian',
+    },
+    prepare: (fields) => ({
+      title: `${fields.name} ${fields.vegetarian ? '🌱' : ''}`,
+    }),
+  },
 };
