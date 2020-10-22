@@ -72,6 +72,9 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
     display: inline-block;
   }
+  aside {
+    display:none;
+  }
 `;
 
 export default GlobalStyles;
