@@ -1,22 +1,49 @@
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
+import styled from 'styled-components';
+
+// Adding Pizza Sub grid
+const PizzaGridStyles = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 4rem;
+  grid-auto-rows: auto auto 500px;
+`;
+
+// Tell h2, and p and image based on the parent  (Sunb grid)
+// Allign to the parent grid
+const PizzaStyles = styled.div`
+  display: grid;
+  /* Take your row sizing not from the pizzaStyles div, but from the  PizzaGridStyles grid */
+  // Check support for sub grid, if not define css var encapsulated
+  @supports not (grid-template-rows: subgrid) {
+    --rows: auto auto 1fr;
+  }
+  grid-template-rows: var(--rows, subgrid);
+  grid-row: span 3;
+  grid-gap: 1rem;
+
+  h2,
+  p {
+    margin: 0;
+  }
+`;
 
 export default function PizzaList({ pizzas }) {
   console.log(pizzas.length);
   return (
-    <>
-      <p>There are {pizzas.length} pizzas</p>
+    <PizzaGridStyles>
       {pizzas.map((pizza) => (
         <SinglePizza key={pizza.id} pizza={pizza} />
       ))}
-    </>
+    </PizzaGridStyles>
   );
 }
 
 function SinglePizza({ pizza }) {
   return (
-    <div>
+    <PizzaStyles>
       <Link to={`/pizza/${pizza.slug.current}`}>
         <h2>
           <span className="mark">{pizza.name}</span>
@@ -25,6 +52,6 @@ function SinglePizza({ pizza }) {
       <p>{pizza.toppings.map((topping) => topping.name).join(', ')}</p>
       <Img fluid={pizza.image.asset.fluid} alt={pizza.name} />
       {/* <Img fixed={pizza.image.asset.fixed} alt={pizza.name} /> */}
-    </div>
+    </PizzaStyles>
   );
 }
