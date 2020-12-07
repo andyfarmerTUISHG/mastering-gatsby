@@ -1,12 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PizzaList from '../components/PizzaList';
+import ToppingsFilter from '../components/ToppingFilter';
 
 export default function PizzasPage({ data }) {
   console.log(data);
   const pizzas = data.pizzas.nodes;
   return (
     <>
+      <ToppingsFilter />
       <PizzaList pizzas={pizzas} />
       <aside>Graphql name your graphql query with name: query</aside>
     </>
