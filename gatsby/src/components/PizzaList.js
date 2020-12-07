@@ -11,8 +11,8 @@ const PizzaGridStyles = styled.div`
   grid-auto-rows: auto auto 500px;
 `;
 
-// Tell h2, and p and image based on the parent  (Sunb grid)
-// Allign to the parent grid
+// Tell h2, and p and image based on the parent  (Sub grid)
+// Align to the parent grid
 const PizzaStyles = styled.div`
   display: grid;
   /* Take your row sizing not from the pizzaStyles div, but from the  PizzaGridStyles grid */
@@ -31,7 +31,6 @@ const PizzaStyles = styled.div`
 `;
 
 export default function PizzaList({ pizzas }) {
-  console.log(pizzas.length);
   return (
     <PizzaGridStyles>
       {pizzas.map((pizza) => (
