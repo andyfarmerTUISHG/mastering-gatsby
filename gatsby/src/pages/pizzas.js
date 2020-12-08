@@ -4,8 +4,6 @@ import PizzaList from '../components/PizzaList';
 import ToppingsFilter from '../components/ToppingFilter';
 
 export default function PizzasPage({ data, pageContext }) {
-  console.clear();
-  console.log(data);
   const pizzas = data.pizzas.nodes;
   return (
     <>
