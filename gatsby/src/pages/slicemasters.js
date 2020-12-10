@@ -7,6 +7,7 @@ export default function SlicemastersPage({ data }) {
   return (
     <>
       <p>Slicemasters page</p>
+      <p>Showing {process.env.GATSBY_PAGE_SIZE} Slicemasters per page!</p>
       <SliceMasterList slicemasters={slicemasters} />
     </>
   );
