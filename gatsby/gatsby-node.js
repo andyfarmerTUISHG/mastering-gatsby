@@ -64,7 +64,7 @@ async function turnPizzasIntoPages({ graphql, actions }) {
 
 async function turnToppingsIntoPages({ graphql, actions }) {
   console.log(`_________________________________________`);
-  console.log(`____ 🏗️ - 🌶️ Building Toppings         ___`);
+  console.log(`____ 🏗️ - 🌶️  Building Toppings         ___`);
   console.log(`_________________________________________`);
   // 1.  Get a template for this page
   const { createPage } = actions;
@@ -136,7 +136,6 @@ export async function sourceNodes(params) {
   // fetch list of beers and source them into our Gatsby API
   // Sourcing - getting data in the Gatsby API
   // Nodes are pieces of data (Beer in this case)
-  console.log(`in gatsby-nodes - sourceNodes functions`);
   await Promise.all([fetchBeersAndTurnIntoNodes(params)]);
 }
 

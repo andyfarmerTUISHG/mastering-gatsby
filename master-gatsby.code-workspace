@@ -6,11 +6,12 @@
   ],
   "settings": {
     "cSpell.words": [
-      "Destructure",
-      "apos",
-      "hotspot",
-      "slicemasters",
-      "subgrid"
+        "Destructure",
+        "Slicemaster",
+        "apos",
+        "hotspot",
+        "slicemasters",
+        "subgrid"
     ],
     "jshint.enable": false,
     "ponicode.testSettings.testLocation.locationType": "Same folder as source file",
