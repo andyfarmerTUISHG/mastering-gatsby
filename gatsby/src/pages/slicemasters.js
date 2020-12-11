@@ -1,13 +1,19 @@
 import { graphql } from 'gatsby';
 import React from 'react';
+import Pagination from '../components/pagination';
 import SliceMasterList from '../components/SliceMasters';
 
-export default function SlicemastersPage({ data }) {
+export default function SlicemastersPage({ data, pageContext }) {
   const slicemasters = data.slicemasters.nodes;
   return (
     <>
-      <p>Slicemasters page</p>
-      <p>Showing {process.env.GATSBY_PAGE_SIZE} Slicemasters per page!</p>
+      <Pagination
+        pageSize={parseInt(process.env.GATSBY_PAGE_SIZE)}
+        totalCount={data.slicemasters.totalCount}
+        currentPage={pageContext.currentPage || 1}
+        skip={pageContext.skip}
+        base="/slicemasters"
+      />
       <SliceMasterList slicemasters={slicemasters} />
     </>
   );
