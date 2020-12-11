@@ -11,6 +11,7 @@
         "apos",
         "hotspot",
         "slicemasters",
+        "slicematers",
         "subgrid"
     ],
     "jshint.enable": false,
