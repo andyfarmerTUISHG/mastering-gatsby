@@ -1,5 +1,5 @@
-import { graphql } from 'gatsby';
 import React from 'react';
+import { graphql } from 'gatsby';
 import Pagination from '../components/pagination';
 import SliceMasterList from '../components/SliceMasters';
 

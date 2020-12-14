@@ -157,12 +157,13 @@ async function turnSliceMastersIntoPages({ graphql, actions }) {
   `);
   // 2. turn each slicemaster into their own page
   const { createPage } = actions;
-  const sliceMasterTemplate = path.resolve(`./src/pages/slicemasters.js`);
+  const sliceMasterTemplate = path.resolve(`./src/templates/slicemaster.js`);
   slicemasters.nodes.forEach((slicemaster) => {
     createPage({
       path: `slicemaster/${slicemaster.slug.current}`,
       component: sliceMasterTemplate,
       context: {
+        name: slicemaster.name,
         slug: slicemaster.slug.current,
       },
     });
@@ -178,7 +179,7 @@ async function turnSliceMastersIntoPages({ graphql, actions }) {
     console.log(`Creating page ${i}`);
     actions.createPage({
       path: `slicemasters/${i + 1}`,
-      component: sliceMasterTemplate,
+      component: path.resolve(`./src/pages/slicemasters.js`),
       context: {
         pagination: i + 1,
         skip: i * pageSize,
