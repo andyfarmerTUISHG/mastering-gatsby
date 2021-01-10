@@ -109,7 +109,7 @@ async function fetchBeersAndTurnIntoNodes({
   console.log(`_________________________________________`);
   console.log(`____ 🏗️ - 🍻 Turn Beers into Nodes     ___`);
   // 1. Fetch a list of beers
-  const res = await fetch(`https://sampleapis.com/beers/api/ale`);
+  const res = await fetch(`https://api.sampleapis.com/beers/ale`);
   const beers = await res.json();
   // 2. Loop over each one
   beers.forEach((beer) => {
