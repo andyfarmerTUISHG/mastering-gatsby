@@ -7,6 +7,7 @@ const MenuStyles = styled.div`
   gap: 0 1.3rem;
   align-content: center;
   align-items: center;
+  position: relative;
   //Spread the image over 2 rows
   .gatsby-image-wrapper {
     grid-row: span 2;
