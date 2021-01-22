@@ -12,7 +12,7 @@ export default function OrdersPage({ data }) {
     email: '',
   });
   const pizzas = data.pizzas.nodes;
-  console.log(typeof pizzas);
+
   return (
     <>
       <SEO title="Orders My Pizza Page" />
