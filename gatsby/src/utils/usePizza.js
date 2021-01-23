@@ -1,8 +1,15 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import OrderContext from '../components/OrderContext';
 
 export default function usePizza({ pizzas, inputs }) {
   // 1, Create Ste to hold our order
-  const [order, setOrder] = useState([]);
+
+  // MG-38 - this line is not required as useState moved up to the Provider - OrderContext.js
+  // const [order, setOrder] = useState([]);
+
+  // MG-38 - Now we access state and update function setOrder via context
+  const [order, setOrder] = useContext(OrderContext);
+
   // 2. Make a function to add things to order
   function addToOrder(orderedPizza) {
     setOrder([...order, orderedPizza]);
