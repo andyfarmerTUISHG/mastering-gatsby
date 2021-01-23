@@ -9,6 +9,7 @@ import OrderStyles from '../styles/OrderStyles';
 import MenuStyles from '../styles/MenuStyles';
 import usePizza from '../utils/usePizza';
 import PizzaOrder from '../components/PizzaOrder';
+import calculateOrderTotal from '../utils/calculateOrderTotal';
 
 export default function OrdersPage({ data }) {
   const pizzas = data.pizzas.nodes;
@@ -47,8 +48,9 @@ export default function OrdersPage({ data }) {
             />
           </label>
         </fieldset>
+
         <fieldset className="menu">
-          <legend>Menu Info</legend>
+          <legend>Menu</legend>
           {pizzas.map((pizza) => (
             <MenuStyles key={pizza.id}>
               <Img
@@ -80,6 +82,10 @@ export default function OrdersPage({ data }) {
             pizzas={pizzas}
             removeFromOrder={removeFromOrder}
           />
+        </fieldset>
+        <fieldset>
+          <h5>Your Total is {calculateOrderTotal(order, pizzas)}</h5>
+          <button type="submit">Order Ahead</button>
         </fieldset>
       </OrderStyles>
     </>
