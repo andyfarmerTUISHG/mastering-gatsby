@@ -10,7 +10,7 @@ export default function useForm(defaults) {
       value = parseInt(value);
     }
     setValues({
-      // copy the existings values into it
+      // copy the existing values into it
       ...values,
       // update the new value that change
       // use the name attribute of the input and set it to the value of what the user typer
