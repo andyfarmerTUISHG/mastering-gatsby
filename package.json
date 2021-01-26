@@ -8,8 +8,10 @@
     "ui-build": "cd gatsby && npm i",
     "cms-build": "cd sanity && npm i",
     "ui-start": "cd gatsby && npm run start",
+    "netlify-start": "cd gatsby && npm run netlify",
     "cms-start": "cd sanity && npm run start",
-    "mg-start": "concurrently \"npm run ui-start\" \"npm run cms-start\""
+    "mg-start": "concurrently \"npm run ui-start\" \"npm run cms-start\"",
+    "start": "concurrently \"npm run netlify-start\" \"npm run cms-start\""
   },
   "repository": {
     "type": "git",
