@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import OrderContext from '../components/OrderContext';
 
-export default function usePizza({ pizzas, inputs }) {
+export default function usePizza({ pizzas, values }) {
   // 1, Create Ste to hold our order
 
   // MG-38 - this line is not required as useState moved up to the Provider - OrderContext.js

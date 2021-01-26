@@ -19,7 +19,7 @@ export default function OrdersPage({ data }) {
   });
   const { order, addToOrder, removeFromOrder } = usePizza({
     pizzas,
-    inputs: values,
+    values,
   });
 
   return (
