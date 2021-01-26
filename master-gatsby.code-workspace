@@ -13,9 +13,11 @@
         "ogdesc",
         "ogsitename",
         "ogtitle",
+        "prebuild",
         "slicemasters",
         "slicematers",
-        "subgrid"
+        "subgrid",
+        "wesbos"
     ],
     "jshint.enable": false,
     "ponicode.testSettings.testLocation.locationType": "Same folder as source file",
