@@ -37,11 +37,13 @@ export default function usePizza({ pizzas, values }) {
     setError(null);
     setMessage(null);
     // gather data to be sent
+    // console.log(`values - ${JSON.stringify(values)}`);
     const body = {
       order: attachNamesAndPrices(order, pizzas),
       total: calculateOrderTotal(order, pizzas),
       name: values.name,
       email: values.email,
+      mapleSyrup: values.mapleSyrup,
     };
 
     // 4. Send this data to a serverless function when they checkout

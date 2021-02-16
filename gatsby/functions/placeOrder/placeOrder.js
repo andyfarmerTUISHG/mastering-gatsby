@@ -31,7 +31,7 @@ function generateOrderEmail({ order, total }) {
         )
         .join('')}
     </ul>
-    <p>Your total is <strong>$${total}</strong> due at pickup</p>
+    <p>Your total is <strong>${total}</strong> due at pickup</p>
     <style>
         ul {
           list-style: none;
@@ -43,7 +43,16 @@ function generateOrderEmail({ order, total }) {
 exports.handler = async (event, context) => {
   // await wait(5000);
   const body = JSON.parse(event.body);
-  // console.log(body);
+  // console.log(`Placeorder - body ${JSON.stringify(body)}`);
+  // Validate Honeypot
+  if (body.mapleSyrup) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: 'Error Code: 400004000040000 - Buzz 3 - Error',
+      }),
+    };
+  }
   // Validate data coming is correct
   const requiredFields = ['email', 'name', 'order'];
   for (const field of requiredFields) {
