@@ -11,25 +11,37 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+function wait(ms = 0) {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 function generateOrderEmail({ order, total }) {
-  return `
-  <div>
-  <h2>Your Recent order for ${total}</h2>
-  <p>Please start walking over, we will have your order ready in the next 20 minutes.</p>
-  <ul>
-    ${order
-      .map(
-        (item) => `<li>
-    <img src="${item.thumbnail}" alt="${item.name}" />
-    ${item.name} - ${item.price}</li>`
-      )
-      .join('')}
-  </ul>
-  <p>Your total is ${total} </p>
+  return `<div>
+    <h2>Your Recent Order for ${total}</h2>
+    <p>Please start walking over, we will have your order ready in the next 20 mins.</p>
+    <ul>
+      ${order
+        .map(
+          (item) => `<li>
+        <img src="${item.thumbnail}" alt="${item.name}"/>
+        ${item.size} ${item.name} - ${item.price}
+      </li>`
+        )
+        .join('')}
+    </ul>
+    <p>Your total is <strong>$${total}</strong> due at pickup</p>
+    <style>
+        ul {
+          list-style: none;
+        }
+    </style>
   </div>`;
 }
 
 exports.handler = async (event, context) => {
+  // await wait(5000);
   const body = JSON.parse(event.body);
   // console.log(body);
   // Validate data coming is correct
@@ -44,6 +56,16 @@ exports.handler = async (event, context) => {
         }),
       };
     }
+  }
+
+  // make sure that actually have items in the order
+  if (!body.order.length) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: `Why order with no pizzas added!!`,
+      }),
+    };
   }
   // Send the email
 
