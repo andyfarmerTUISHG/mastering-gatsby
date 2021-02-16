@@ -4,7 +4,7 @@ import attachNamesAndPrices from './attachNamesAndPrices';
 import calculateOrderTotal from './calculateOrderTotal';
 
 export default function usePizza({ pizzas, values }) {
-  // 1, Create Ste to hold our order
+  // 1, Create State to hold our order
 
   // MG-38 - this line is not required as useState moved up to the Provider - OrderContext.js
   // const [order, setOrder] = useState([]);
@@ -58,10 +58,10 @@ export default function usePizza({ pizzas, values }) {
     const text = JSON.parse(await res.text());
     // check if everything worked
     if (res.status >= 400 && res.status < 600) {
-      setLoading(false); // turn of loading
+      setLoading(false); // turn off loading
       setError(text.message);
     } else {
-      // it worked
+      // it worked!
       setLoading(false);
       setMessage(`come get your pizza`);
     }
