@@ -34,7 +34,7 @@ export default function BeerList({ beers }) {
 
 function SingleBeer({ beer }) {
   // cover rating to a whole number
-  const rating = Math.round(beer.rating.average);
+  const rating = Math.round(beer.rating?.average);
   return (
     <BeerStyles id={beer.id}>
       <img src={beer.image} alt={beer.name} />
@@ -45,7 +45,7 @@ function SingleBeer({ beer }) {
         <span style={{ filter: `grayscale(100%)` }}>
           {`⭐`.repeat(5 - rating)}
         </span>
-        <span>({beer.rating.reviews})</span>
+        {beer.rating?.reviews ? <span>({beer.rating.reviews})</span> : ''}
       </p>
     </BeerStyles>
   );
