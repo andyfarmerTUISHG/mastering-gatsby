@@ -1,18 +1,24 @@
 import React from 'react';
+import LoadingGrid from '../components/LoadingGrid';
 import SEO from '../components/SEO';
+import { HomePageGrid } from '../styles/Grids';
 import useLatestData from '../utils/useLatestData';
 
-function CurrentlySlicing() {
+function CurrentlySlicing({ sliceMasters }) {
   return (
     <div>
-      <h3>Currently Slicing</h3>Custom Component
+      {!sliceMasters && <LoadingGrid count={4} />}
+      {sliceMasters && !sliceMasters?.length && (
+        <p>No one is slicing at present</p>
+      )}
     </div>
   );
 }
-function HotSlices() {
+function HotSlices({ hotSlices }) {
   return (
     <div>
-      <h3>Pizzas by the Slice</h3>Custom Component
+      {!hotSlices && <LoadingGrid count={4} />}
+      {hotSlices && !hotSlices?.length && <p>No Slices available</p>}
     </div>
   );
 }
@@ -24,10 +30,10 @@ export default function HomePage() {
       <SEO title="Sick's Slices - The Best Pizzas" />
       <h2>The Best Pizza Downtown!</h2>
       <p>Open 11am to 11pm Every Single Day</p>
-      <div>
+      <HomePageGrid>
         <CurrentlySlicing sliceMasters={sliceMasters} />
         <HotSlices hotSlices={hotSlices} />
-      </div>
+      </HomePageGrid>
     </div>
   );
 }
