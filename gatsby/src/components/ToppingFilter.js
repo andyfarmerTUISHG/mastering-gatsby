@@ -35,11 +35,11 @@ function countPizzasInToppings(pizzas) {
       // check if this is an existing topping
       const existingTopping = acc[topping.id];
       if (existingTopping) {
-        console.log(existingTopping);
+        // console.log(existingTopping);
         // if it is increment by 1
         existingTopping.count += 1;
       } else {
-        console.log('new topping', topping.name);
+        // console.log('new topping', topping.name);
         // otherwise create a new entry in our acc and set it to one
         acc[topping.id] = {
           id: topping.id,
@@ -58,7 +58,7 @@ function countPizzasInToppings(pizzas) {
 }
 
 export default function ToppingsFilter({ activeTopping }) {
-  console.log(`active topping`, activeTopping);
+  // console.log(`active topping`, activeTopping);
   // Get a list of all the toppings
   // Get a list of all the Pizzas with their toppings
   const { toppings, pizzas } = useStaticQuery(graphql`
