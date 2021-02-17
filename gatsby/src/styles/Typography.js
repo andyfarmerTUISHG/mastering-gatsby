@@ -38,6 +38,8 @@ const Typography = createGlobalStyle`
 
   .tilt {
     transform: rotate(-2deg);
+    position: relative;
+    display: inline-block;
   }
 `;
 
