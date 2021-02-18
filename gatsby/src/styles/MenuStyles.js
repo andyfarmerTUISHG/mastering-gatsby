@@ -13,11 +13,15 @@ const MenuStyles = styled.div`
     grid-row: span 2;
     height: 100%;
   }
+  h2 {
+    font-size: clamp(2rem, 1vw, 7rem);
+  }
   p {
     margin: 0;
   }
   button {
     font-size: 1.5rem;
+    font-size: clamp(1.3rem, 1.4vw, 2.5rem);
   }
   button + button {
     margin-left: 1rem;
