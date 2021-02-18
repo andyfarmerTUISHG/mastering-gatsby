@@ -1,5 +1,7 @@
 # Master Gatsby
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/28e6e33a-d2f6-45b8-8dec-69a1b2abb51c/deploy-status)](https://app.netlify.com/sites/slickslices-andyfarmer/deploys)
+
 Based on a Premium JavaScript + CSS Training Course from Wes Bos. You can grab the course at [MasterGatsby.com](https://mastergatsby.com).
 
 ## Notes

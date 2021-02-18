@@ -5,7 +5,7 @@ function ItemGrid({ items }) {
   return (
     <ItemsGrid>
       {items.map((item, index) => (
-        <ItemStyle>
+        <ItemStyle key={`${item.name.replace(' ', '')}-${index}`}>
           <p>
             <span className="mark">{item.name}</span>
           </p>
